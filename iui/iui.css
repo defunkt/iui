@@ -1,4 +1,4 @@
-
+/* iui.css (c) 2007 by iUI Project Members, see LICENSE.txt for license */
 body {
     margin: 0;
     font-family: Helvetica;
@@ -45,6 +45,7 @@ a[selected="progress"] {
 body > .toolbar {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     border-bottom: 1px solid #2d3642;
     border-top: 1px solid #6d84a2;
     padding: 10px;
@@ -180,6 +181,7 @@ body > ul > li > a {
 
 a[target="_replace"] {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     padding-top: 25px;
     padding-bottom: 25px;
     font-size: 18px;
@@ -202,6 +204,7 @@ body > .dialog {
 
 .dialog > fieldset {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     width: 100%;
     margin: 0;
     border: none;
@@ -229,6 +232,7 @@ body > .dialog {
 
 input {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     width: 100%;
     margin: 8px 0 0 0;
     padding: 6px 6px 6px 44px;
@@ -240,6 +244,7 @@ input {
 
 body > .panel {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     padding: 10px;
     background: #c8c8c8 url(pinstripes.png);
 }
@@ -269,6 +274,7 @@ fieldset > .row:last-child {
 
 .row > input {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     margin: 0;
     border: none;
     padding: 12px 10px 0 110px;
