@@ -24,7 +24,14 @@ body[orient="landscape"] > *:not(.toolbar) {
     min-height: 268px;
 }
 
-body > *[selected="true"] {
+ body > *[selected="true"] {
+     display: block;
+    -webkit-transition-property: left; 
+    -webkit-transition-duration: .5s;
+}
+
+body > *:not([selected="true"]) {
+    left: 100% !important;
     display: block;
 }
 

@@ -6,9 +6,6 @@
 
 (function() {
 
-var slideSpeed = 20;
-var slideInterval = 0;
-
 var currentPage = null;
 var currentDialog = null;
 var currentWidth = 0;
@@ -326,50 +323,25 @@ function updatePage(page, fromPage)
         }
         else
             backButton.style.display = "none";
-    }    
+    }
 }
 
 function slidePages(fromPage, toPage, backwards)
-{        
+{
     var axis = (backwards ? fromPage : toPage).getAttribute("axis");
-    if (axis == "y")
+
+    if (axis == "y") {
         (backwards ? fromPage : toPage).style.top = "100%";
-    else
-        toPage.style.left = "100%";
+    } else {
+        fromPage.style.left = (backwards ? "" : "-") + "100%";
+        toPage.style.left = "0%";
+    }
 
     toPage.setAttribute("selected", "true");
     scrollTo(0, 1);
     clearInterval(checkTimer);
-    
-    var percent = 100;
-    slide();
-    var timer = setInterval(slide, slideInterval);
-
-    function slide()
-    {
-        percent -= slideSpeed;
-        if (percent <= 0)
-        {
-            percent = 0;
-            if (!hasClass(toPage, "dialog"))
-                fromPage.removeAttribute("selected");
-            clearInterval(timer);
-            checkTimer = setInterval(checkOrientAndLocation, 300);
-            setTimeout(updatePage, 0, toPage, fromPage);
-        }
-    
-        if (axis == "y")
-        {
-            backwards
-                ? fromPage.style.top = (100-percent) + "%"
-                : toPage.style.top = percent + "%";
-        }
-        else
-        {
-            fromPage.style.left = (backwards ? (100-percent) : (percent-100)) + "%"; 
-            toPage.style.left = (backwards ? -percent : percent) + "%"; 
-        }
-    }
+    checkTimer = setInterval(checkOrientAndLocation, 0);
+    setTimeout(updatePage, 0, toPage, fromPage);
 }
 
 function preloadImages()
